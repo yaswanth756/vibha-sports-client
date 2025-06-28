@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import Home from './pages/home';
+import Home from './pages/Home';
 import Bookings from './pages/bookings';
 import AdminLayout from './admin/components/AdminLayout';
 import AdminBookingsPage from './admin/pages/BookingsPage';
