@@ -84,7 +84,7 @@ const LoginForm = () => {
       : { email: formData.email, otp: formData.otp };
 
     try {
-      const response = await fetch(`${BACKEND_API}api/auth${endpoint}`, {
+      const response = await fetch(`${BACKEND_API}/api/auth${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
