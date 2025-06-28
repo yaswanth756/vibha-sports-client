@@ -1,5 +1,5 @@
 import NavBar from "../components/Navbar";
-import LoginSignupModel from "../components/loginSignupModel";
+import LoginSignupModel from "../components/LoginSignupModel";
 import BookingForm from "../components/BookingForm";
 import HeroSection from "../components/HeroSection";
 import AboutUs from "../components/AboutUs";
