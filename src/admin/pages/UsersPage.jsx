@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Search, Trash2, Pencil, X } from 'lucide-react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+const BACKEND_API = import.meta.env.VITE_BACKEND_API;
 
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
@@ -17,7 +18,7 @@ const UsersPage = () => {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:3000/api/admin/users');
+      const res = await fetch(`${BACKEND_API}/api/admin/users`);
       const data = await res.json();
       setUsers(data);
     } catch (err) {
@@ -32,7 +33,7 @@ const UsersPage = () => {
     if (!confirm) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/admin/users/${userId}`, {
+      const res = await fetch(`${BACKEND_API}/api/admin/users/${userId}`, {
         method: 'DELETE',
       });
       if (res.ok) {
@@ -53,7 +54,7 @@ const UsersPage = () => {
 
   const handleUpdate = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/admin/users/${editUser._id}`, {
+      const res = await fetch(`${BACKEND_API}/api/admin/users/${editUser._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
