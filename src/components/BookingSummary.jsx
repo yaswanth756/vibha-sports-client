@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import formatTimeRange from "../../utils/timeConverter";
-
+const BACKEND_API = import.meta.env.VITE_BACKEND_API;
 const BookingSummary = ({ selectedDate, selectedSlots, slotType, courtName,setTotalPrice }) => {
   const [pricePerHour, setPricePerHour] = useState(0);
 
   useEffect(() => {
     const fetchCourtPrice = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/courts");
+        const res = await fetch(`${BACKEND_API}/api/courts`);
         const courts = await res.json();
         const court = courts.find(c => c.name === courtName);
         if (court) setPricePerHour(court.pricePerHour);
